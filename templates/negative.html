@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <title>Negative Result</title>
+  </head>
+
+  <body>
+    {% include 'navbar.html' %} {% block content %}{% endblock %}
+    <div class="overlay" id="overlay"></div>
+    <div class="result-card">
+      <h2 class="result-no">Possible Absence of Heart Disease</h2>
+      <p>
+        The prediction suggests that the person may not have heart disease, but
+        further evaluation by a healthcare professional is recommended.
+      </p>
+      <p class="tips">
+        Here are some general tips to maintain a healthy heart:
+      </p>
+      <ul>
+        <li>
+          Eat a balanced diet rich in fruits, vegetables, and whole grains.
+        </li>
+        <li>
+          Exercise regularly - aim for at least 30 minutes most days of the
+          week.
+        </li>
+        <li>Avoid smoking and limit alcohol consumption.</li>
+        <li>
+          Manage stress through relaxation techniques such as yoga or
+          meditation.
+        </li>
+        <li>Get regular check-ups with your healthcare provider.</li>
+      </ul>
+      <p class="goback">
+        <a href="{{ url_for('heart_disease_prediction') }}">Go back</a>
+      </p>
+    </div>
+  </body>
+</html>

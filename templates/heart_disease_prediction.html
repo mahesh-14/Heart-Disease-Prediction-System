@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <title>Heart Disease Prediction System</title>
+  </head>
+  <body class="main-page">
+    {% include 'navbar.html' %} {% block content %}{% endblock %}
+    <div class="overlay" id="overlay"></div>
+    <h2>Heart Disease Prediction System</h2>
+    <div class="input-form">
+      <form action="/predict" method="post">
+        <h4>Enter your health parameters</h4>
+        <div class="form-group">
+          <label for="age">Age:</label><br />
+          <input type="text" id="age" name="age" /><br />
+        </div>
+
+        <div class="form-group">
+          <label for="male">Gender:</label><br />          
+          <span>
+            <input type="radio" id="male" name="sex" value="1" />
+            <label for="male">Male</label>
+          </span><br />
+          
+          <span>
+            <input type="radio" id="female" name="sex" value="0" />
+            <label for="female">Female</label>
+          </span><br />
+        </div>
+        
+
+        <div class="form-group">
+          <label for="cp">Chest Pain Type:</label><br />
+          <select id="cp" name="cp">
+            <option value="0">Typical Angina</option>
+            <option value="1">Atypical Angina</option>
+            <option value="2">Non-anginal Pain</option>
+            <option value="3">Asymptomatic</option></select
+          ><br />
+        </div>
+
+        <div class="form-group">
+          <label for="trestbps">Resting Blood Pressure:</label><br />
+          <input type="text" id="trestbps" name="trestbps" /><br />
+        </div>
+
+        <div class="form-group">
+          <label for="chol">Cholesterol Level:</label><br />
+          <input type="text" id="chol" name="chol" /><br />
+        </div>
+
+        <div class="form-group">
+          <label for="fbs">Fasting Blood Sugar greater than 120 mg/dl:</label><br />
+          <span>
+            <input type="radio" id="fbs" name="fbs" value="1" />
+            <label for="fbs">Yes</label><br />
+            <input type="radio" id="no_fbs" name="fbs" value="0" />
+            <label for="no_fbs">No</label>
+          </span><br />
+        </div>
+
+        <div class="form-group">
+          <label for="restecg">Resting Electrocardiographic Results:</label
+          ><br />
+          <select id="restecg" name="restecg">
+            <option value="0">Normal</option>
+            <option value="1">ST-T Wave Abnormality</option>
+            <option value="2">Left Ventricular Hypertrophy</option></select
+          ><br />
+        </div>
+
+        <div class="form-group">
+          <label for="thalach">Maximum Heart Rate Achieved:</label><br />
+          <input type="text" id="thalach" name="thalach" /><br />
+        </div>
+
+        <div class="form-group">
+       <label for="exang_yes">Exercise Induced Angina </label><br />
+          <span>
+            <input type="radio" id="exang_yes" name="exang" value="1" />
+            <label for="exang_yes">Yes</label><br />
+            <input type="radio" id="exang_no" name="exang" value="0" />
+            <label for="exang_no">No</label>
+          </span><br />
+        </div>
+
+        <div class="form-group">
+          <label for="oldpeak"
+            >ST Depression Induced by Exercise Relative to Rest:</label
+          ><br />
+          <input type="text" id="oldpeak" name="oldpeak" /><br />
+        </div>
+
+        <input class="submit" type="submit" value="Submit" />
+      </form>
+    </div>
+  </body>
+</html>

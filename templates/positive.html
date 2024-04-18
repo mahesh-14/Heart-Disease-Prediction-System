@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <title>Positive Result</title>
+  </head>
+  <body>
+    {% include 'navbar.html' %} {% block content %}{% endblock %}
+    <div class="overlay" id="overlay"></div>
+    <div class="result-card">
+      <h2 class="result-yes">Possible Presence of Heart Disease</h2>
+      <p>
+        The prediction suggests that the person may have heart disease, but
+        further evaluation by a healthcare professional is recommended.
+      </p>
+      <p>
+        It's important to seek medical attention and follow your healthcare
+        provider's recommendations.
+      </p>
+      <p class="tips">Here are some general tips for managing heart disease:</p>
+      <ul>
+        <li>
+          Follow a heart-healthy diet low in saturated fats, trans fats, and
+          cholesterol.
+        </li>
+        <li>
+          Monitor blood pressure, cholesterol levels, and blood sugar regularly.
+        </li>
+        <li>
+          Take prescribed medications as directed by your healthcare provider.
+        </li>
+        <li>
+          Engage in regular physical activity as recommended by your healthcare
+          provider.
+        </li>
+        <li>Quit smoking and avoid exposure to secondhand smoke.</li>
+        <li>
+          Manage stress through relaxation techniques and support networks.
+        </li>
+      </ul>
+      <p class="goback">
+        <a href="{{ url_for('heart_disease_prediction') }}">Go back</a>
+      </p>
+    </div>
+  </body>
+</html>

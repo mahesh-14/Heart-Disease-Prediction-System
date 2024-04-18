@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="logo">Cardio Guardian Pro</div>
+      <button class="navbar-toggle" id="navbar-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links">
+        {% if not current_user.is_authenticated %}
+        <!-- Display the login link only if the user is not authenticated -->
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+        {% endif %} {% if current_user.is_authenticated %}
+        <li>
+          <a href="{{ url_for('heart_disease_prediction') }}">Prediction</a>
+        </li>
+        <li>
+          <a id="logout-link" href="{{ url_for('logout') }}">Logout</a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var logoutLink = document.getElementById("logout-link");
+        if (logoutLink) {
+          logoutLink.addEventListener("click", function (event) {
+            event.preventDefault(); 
+    
+            
+            if (confirm("Are you sure you want to log out?")) {
+              window.location.href = "{{ url_for('logout') }}"; 
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

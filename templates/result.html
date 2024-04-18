@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <title>Heart Disease Prediction Result</title>
+  </head>
+
+  <body>
+    {% include 'navbar.html' %}
+    {% block content %}{% endblock %}
+    <div class="overlay" id="overlay"></div>
+    <div class="result-card">
+      <h2>Heart Disease Prediction Result</h2>
+      {% if result == 'The person has heart disease.' %}
+      <p class="result-yes">{{ result }}</p>
+      {% else %}
+      <p class="result-no">{{ result }}</p>
+      {% endif %}
+      <p><a href="{{ url_for('heart_disease_prediction') }}">Go back</a></p>
+    </div>
+  
+  </body>
+</html>
